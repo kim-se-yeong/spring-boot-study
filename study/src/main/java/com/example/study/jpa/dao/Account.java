@@ -19,11 +19,11 @@ import lombok.Setter;
 public class Account {
     
     @ManyToOne
-    // @JoinColumns(value = {
-    //     @JoinColumn(name = "user_id"),
-    //     @JoinColumn(name = "user_last_name")
-    // })
-    @JoinColumn(name = "id", referencedColumnName = "id")
+     @JoinColumns(value = {
+         @JoinColumn(name = "user_id", referencedColumnName = "id"),
+         @JoinColumn(name = "user_last_name", referencedColumnName = "lastName")
+     })
+//    @JoinColumn(name = "id", referencedColumnName = "id")
     private User user;
 
     private String bank;
