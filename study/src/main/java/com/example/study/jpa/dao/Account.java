@@ -23,7 +23,7 @@ public class Account {
     //     @JoinColumn(name = "user_id"),
     //     @JoinColumn(name = "user_last_name")
     // })
-    @JoinColumn(name = "created_at", referencedColumnName = "createdAt")
+    @JoinColumn(name = "id", referencedColumnName = "id")
     private User user;
 
     private String bank;
