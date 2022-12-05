@@ -27,7 +27,7 @@ public class RepositoryTests {
         Account account = new Account();
         account.setBank("shinhan");
         account.setNumber("110-123-456789");
-        account.setUser(userRepository.findByFirstName("sein"));
+        account.setUser(userRepository.findByName("김세영"));
 
         accountRepository.save(account);
     }

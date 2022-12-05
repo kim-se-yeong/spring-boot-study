@@ -1,36 +1,29 @@
 package com.example.study.jpa.dao;
 
-import java.io.Serializable;
 import java.time.LocalDateTime;
+import java.util.ArrayList;
+import java.util.List;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.IdClass;
-import javax.persistence.Table;
+import javax.persistence.*;
 
-import lombok.AllArgsConstructor;
-import lombok.Builder;
 import lombok.Getter;
 import lombok.Setter;
+import org.hibernate.annotations.BatchSize;
 
-@Getter
 @Table
 @Entity
+@Getter
 @Setter
-// @Builder
-// @AllArgsConstructor
-@IdClass(UserId.class)
-public class User implements Serializable {
+public class User {
 
-    @Id
+    @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Id
-    private String lastName;
-
-    @Column(unique = true)
-    private String firstName;
+    private String name;
 
     private LocalDateTime createdAt;
+
+    @OneToMany(mappedBy = "user", fetch = FetchType.LAZY)
+//    @BatchSize(size = 3)
+    private List<Account> accountList = new ArrayList<>();
 }
