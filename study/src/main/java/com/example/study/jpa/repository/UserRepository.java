@@ -16,7 +16,7 @@ public interface UserRepository extends JpaRepository<User, String> {
     User findByName(String name);
 
     @Query("SELECT user FROM User user JOIN FETCH user.accountList")
-    LinkedHashSet<User> findAllWithFetchJoin();
+    List<User> findAllWithFetchJoin();
 
     //중복 제거
     @Query("SELECT DISTINCT user FROM User user JOIN FETCH user.accountList")

@@ -17,6 +17,7 @@ import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 import org.springframework.test.annotation.Rollback;
 
 import java.time.LocalDateTime;
+import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.Set;
 
@@ -97,7 +98,8 @@ public class RepositoryTests {
     @DisplayName("N + 1 문제 해결 - fetchJoin")
     void findAllWithFetchJoin() {
 
-        Set<User> users = userRepository.findAllWithFetchJoin();
+        //중복 데이터 발생
+        List<User> users = userRepository.findAllWithFetchJoin();
         users.forEach(user -> {
             user.getAccountList().forEach(account -> {
                 System.out.println(user.getName() + ", " + account.getNumber());
@@ -118,8 +120,33 @@ public class RepositoryTests {
     }
 
     @Test
+    @DisplayName("N + 1 문제 해결 - @BatchSize")
+    void findAllWithBatchSize() {
+
+        /**
+         * 테스트 실행하려면 User 엔티티의 accountList @BatchSize 주석 제거 필요
+         */
+        List<User> users = userRepository.findAll();
+        for (User user : users) {
+            System.out.println(user.getName());
+        }
+
+        //프록시 객체
+        List<Account> accountListOfUser1 = users.get(0).getAccountList();
+        List<Account> accountListOfUser2 = users.get(1).getAccountList();
+        List<Account> accountListOfUser3 = users.get(2).getAccountList();
+        System.out.println("위 객체는 프록시 객체입니다.");
+
+        //초기화
+        System.out.println(accountListOfUser1.size());
+        System.out.println(accountListOfUser2.size());
+        System.out.println(accountListOfUser3.size());
+    }
+
+    @Test
     @DisplayName("View 테스트")
     void findViewEntity() {
+
         List<UserView> all = userViewRepository.findAll();
         for (UserView user : all) {
             System.out.println("user.toString() = " + user.toString());

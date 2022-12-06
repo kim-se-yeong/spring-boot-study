@@ -24,6 +24,6 @@ public class User {
     private LocalDateTime createdAt;
 
     @OneToMany(mappedBy = "user", fetch = FetchType.LAZY)
-//    @BatchSize(size = 3)
+//    @BatchSize(size = 2)
     private List<Account> accountList = new ArrayList<>();
 }
