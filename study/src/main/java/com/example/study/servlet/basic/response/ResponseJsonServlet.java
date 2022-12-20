@@ -1,6 +1,6 @@
 package com.example.study.servlet.basic.response;
 
-import com.example.study.servlet.basic.Phone;
+import com.example.study.servlet.domain.Phone;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 import javax.servlet.ServletException;
@@ -21,7 +21,7 @@ public class ResponseJsonServlet extends HttpServlet {
         response.setCharacterEncoding("utf-8");
 
         Phone phone = new Phone();
-        phone.setOs("ios");
+        phone.setName("iphone mini 12");
         phone.setPrice(1000000);
 
         String result = objectMapper.writeValueAsString(phone);

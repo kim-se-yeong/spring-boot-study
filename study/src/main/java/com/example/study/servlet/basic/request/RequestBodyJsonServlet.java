@@ -1,6 +1,6 @@
 package com.example.study.servlet.basic.request;
 
-import com.example.study.servlet.basic.Phone;
+import com.example.study.servlet.domain.Phone;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.util.StreamUtils;
@@ -28,7 +28,7 @@ public class RequestBodyJsonServlet extends HttpServlet {
         log.info("messageBody = {}" + messageBody);
         Phone phone = objectMapper.readValue(messageBody, Phone.class);
 
-        log.info("phone.os = {}" + phone.getOs());
+        log.info("phone.name = {}" + phone.getName());
         log.info("phone.price = {}" + phone.getPrice());
     }
 }
