@@ -1,4 +1,4 @@
-package com.example.study.servlet.web.frontcontroller.servlet;
+package com.example.study.servlet.web.servlet;
 
 import com.example.study.servlet.domain.Phone;
 import com.example.study.servlet.domain.PhoneRepository;
