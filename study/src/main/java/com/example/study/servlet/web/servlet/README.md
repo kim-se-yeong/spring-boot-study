@@ -26,7 +26,7 @@ writer.write("<!DOCTYPE html>\n" +
 ### JSP
 JSP(Jakarta Server Page)는 HTML 내에 **자바 코드를 삽입하여 웹 서버에서 동적으로 웹 페이지를 생성하여 웹 브라우저에 돌려주는 서버사이드 스크립트 언어**이다.<br>
 JSP 로 개발하게 된다면 view 를 위한 HTML 작업은 쉬우며 깔끔해지고, 동적으로 변경이 필요한 부분에만 자바를 사용한다.<br>
-하위 예시를 보면 자바 코드로 된 부분은 비즈니스 로직이고 나머지는 view 를 위한 HTML 코드인데, 결국 두 가지 일(logic, view)을 하고 있다.
+하지만, 하위 예시를 보면 자바 코드로 된 부분은 비즈니스 로직이고 나머지는 view 를 위한 HTML 코드인데, 결국 두 가지 일(logic, view)을 하고 있다.
 ```
 <%@ page import="com.example.study.servlet.domain.PhoneRepository" %>
 <%@ page import="com.example.study.servlet.domain.Phone" %>
