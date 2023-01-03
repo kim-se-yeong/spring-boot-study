@@ -1,6 +1,7 @@
 ## HandlerMapping & HandlerAdapter & ViewResolver
-스프링부트가 자동 등록하는 대표적인 HandlerMapping & HandlerAdapter & ViewResolver<br>
-<br>
+FrontController 패턴에 대해 공부할 때 여러 유형의 컨트롤러를 `유연하게` 사용하기 위해 `HandlerMapping` 과 `HandlerAdapter` 를 구현해보았다.<br>
+스프링도 다양한 컨트롤러 방식을 지원하는데, 스프링에서 자동으로 등록해주는 대표적인 HandlerMapping, HandlerAdapter 그리고 ViewResolver 에 대해서 알아본다. 
+
 ### HandlerMapping
 **✔ RequestMappingHandlerMapping** : 어노테이션 기반의 컨트롤러인 `@RequestMapping` 에서 사용
 
@@ -22,9 +23,9 @@ public class MyHttpRequestHandler implements HttpRequestHandler {
 ### HandlerAdapter
 **✔ RequestMappingHandlerAdapter** : 어노테이션 기반의 컨트롤러인 `@RequestMapping` 에서 사용
 
-**✔ HttpRequestHandlerAdapter** : HttpRequestHandler 처리
+**✔ HttpRequestHandlerAdapter** : [HttpRequestHandler](#HttpRequestHandler) 처리
 ```
-//HttpRequestHandler 인터페이스를 구현하여 사용한다.
+//HttpRequestHandler 인터페이스를 구현하여 사용하면, HttpRequestHandlerAdapter 를 통해 handleRequest 함수가 호출된다.
 public class MyHttpRequestHandler implements HttpRequestHandler {
 
     @Override
@@ -33,7 +34,8 @@ public class MyHttpRequestHandler implements HttpRequestHandler {
     }
 }
 ```
-**✔ SimpleControllerHandlerAdapter** : Controller 인터페이스 처리
+
+**✔ SimpleControllerHandlerAdapter** : [Controller](https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/web/servlet/mvc/package-summary.html) 인터페이스 처리
 ```
 //Controller 인터페이스를 구현하여 사용한다.
 public class OldController implements Controller {
