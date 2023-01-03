@@ -2,7 +2,7 @@
 What is Front Controller ?<br>
 소프트웨어 디자인 패턴으로  웹 애플리케이션으로 들어오는 모든 요청을 하나의 서블릿으로 받는다.<br>
 
-![img.png](img.png)
+<img src="img.png" width="1000" height="600">
 
 ### Package v1
 #### ✔ 프론트 컨트롤러 도입
