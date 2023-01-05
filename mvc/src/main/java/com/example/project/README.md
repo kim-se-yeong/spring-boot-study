@@ -64,8 +64,10 @@ public String edit(@ModelAttribute Item item) {
 
 이 흐름과 같이 클라이언트에서 수정 내용 저장 요청(POST) -> 서버에서 수정 완료 후 상세 페이지로 이동(Redirect) -> 상세 페이지 이동(GET) 하는 것을 [PRG 패턴](#PRG-패턴)이라고 부른다.<br>
 
+---
+
 ### PRG 패턴
 > 양식 제출 후 표시되는 페이지를 다시 로드, 공유 또는 다른 양식 제출과 같은 악영향 없이 북마크할 수 있도록 하는 웹 개발 디자인 패턴이다. - 위키백과
->
-> ![img_3.png](img_3.png)
+
+![img_3.png](img_3.png)
 
