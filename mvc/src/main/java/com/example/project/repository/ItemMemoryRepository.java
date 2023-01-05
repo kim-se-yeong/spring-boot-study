@@ -1,6 +1,6 @@
 package com.example.project.repository;
 
-import com.example.project.domain.Phone;
+import com.example.project.domain.Item;
 import org.springframework.stereotype.Repository;
 
 import java.util.ArrayList;
@@ -9,20 +9,20 @@ import java.util.List;
 import java.util.Map;
 
 @Repository
-public class PhoneMemoryRepository implements PhoneRepository {
+public class ItemMemoryRepository implements ItemRepository {
 
     private static long sequence = 0;
-    private static Map<Long, Phone> store = new HashMap<>();
+    private static Map<Long, Item> store = new HashMap<>();
 
     @Override
-    public Phone save(Phone phone) {
-        phone.setId(sequence++);
-        store.put(phone.getId(), phone);
-        return phone;
+    public Item save(Item item) {
+        item.setId(sequence++);
+        store.put(item.getId(), item);
+        return item;
     }
 
     @Override
-    public Phone findById(Long id) {
+    public Item findById(Long id) {
         return store.get(id);
     }
 
@@ -32,16 +32,16 @@ public class PhoneMemoryRepository implements PhoneRepository {
     }
 
     @Override
-    public void updateById(Long id, Phone updateParam) {
+    public void updateById(Long id, Item updateParam) {
         //updateParam 은 따로 DTO 로 관리
-        Phone findPhone = findById(id);
-        findPhone.setPrice(updateParam.getPrice());
-        findPhone.setName(updateParam.getName());
-        findPhone.setCompany(updateParam.getCompany());
+        Item findItem = findById(id);
+        findItem.setPrice(updateParam.getPrice());
+        findItem.setName(updateParam.getName());
+        findItem.setQuantity(updateParam.getQuantity());
     }
 
     @Override
-    public List<Phone> findAll() {
+    public List<Item> findAll() {
         return new ArrayList<>(store.values());
 //        return store.values()
 //                .stream()

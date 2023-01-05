@@ -4,19 +4,19 @@ import lombok.Getter;
 import lombok.Setter;
 
 @Getter @Setter
-public class Phone {
+public class Item {
 
     private Long id;
 
     private String name;
 
-    private String company;
-
     private int price;
 
-    public Phone(String name, String company, int price) {
+    private int quantity;
+
+    public Item(String name, int price, int quantity) {
         this.name = name;
-        this.company = company;
+        this.quantity = quantity;
         this.price = price;
     }
 }
