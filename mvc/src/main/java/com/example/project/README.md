@@ -3,7 +3,7 @@
 ### 느낀점<br>
 웹 프로젝트를 학원 다녔을 때 잠깐 배웠었는데, 뷰 템플릿 엔진은 JSP 를 사용했었다.<br>
 실무에서는 웹 프로젝트를 한 번도 하지 않았었고, REST API 만 구현했었던 입장이었다.<br>
-요즘 뷰 템플릿 엔진으로 thymeleaf 가 대세라는 건 알고 있었지만, 처음 사용해보기 때문에 내용이 쉽지는 않았다.<br>
+요즘 뷰 템플릿 엔진으로 [thymeleaf](https://github.com/kim-se-yeong/spring-boot-study/tree/main/mvc/src/main/java/com/example/thymeleaf) 가 대세라는 건 알고 있었지만, 처음 사용해보기 때문에 내용이 쉽지는 않았다.<br>
 
 또한, [Redirect](#Redirect) 처리하는 것도 처음 경험해보았다.<br>
 Redirect 라는 용어는 많이 사용해 본 적이 있었지만, 실제로 처리하면서 어떻게 흘러가는지에 대해 파악할 수 있어서 좋았다.<br> 
