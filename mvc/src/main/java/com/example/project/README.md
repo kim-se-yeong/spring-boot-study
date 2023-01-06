@@ -11,16 +11,6 @@ Redirect 라는 용어는 많이 사용해 본 적이 있었지만, 실제로 �
 그래도 스프링 MVC 1편 강의에서 배웠던 내용을 기본으로 프로젝트를 구현하여서 구조 및 흐름에 대해서는 쉽게 이해 할 수 있었다. 
 
 ---
-### Thymeleaf
-> 웹 사이트를 위한 서버사이드 자바 템플릿 엔진으로, [서버 사이드 HTML 렌더링](#SSR) 성격을 지닌다.<br>
-
-
-
-공식 문서
-* [thymeleaf 기본 기능 공식 사이트](https://www.thymeleaf.org/doc/tutorials/3.0/usingthymeleaf.html)<br>
-* [thymeleaf 스프링 통합](https://www.thymeleaf.org/doc/tutorials/3.0/thymeleafspring.html)
-
----
 ### Redirect
 상품 목록에서 상품 등록을 클릭했을 때, `GET 방식의 /items/add` 컨트롤러가 호출된다.<br>
 **상품을 등록하면 다음과 같은 화면이 노출**된다.<br>
@@ -79,52 +69,3 @@ public String edit(@ModelAttribute Item item) {
 > 양식 제출 후 표시되는 페이지를 다시 로드, 공유 또는 다른 양식 제출과 같은 악영향 없이 북마크할 수 있도록 하는 웹 개발 디자인 패턴이다. - 위키백과
 
 ![img_3.png](img_3.png)
-
-### SSR
-Server Side Rendering 의 약자로, 서버는 클라이언트한테 보여 줄 페이지를 렌더링하여 브라우저한테 전달한다.<br>
-그럼 웹 브라우저는 서버로부터 받은 페이지(이미 다 그려진)를 클라이언트한테 보여준다.<br>
-
-동작 방식
-![img_4.png](img_4.png)
-1. 서버는 페이지를 그려서 브라우저한테 전달한다.
-2. 브라우저는 클라이언트한테 서버로부터 받은 페이지를 보여주면서, 페이지와 관련된 JS 파일을 다운로드 받는다.
-   * 클라이언트는 화면을 볼 수 있지만, 기능(서버의 동작이 필요한)을 사용할 수 없다.
-   * 브라우저는 사용자가 원하는 기능을 기억하고 있다.
-     * 예를 들어, JS 다운로드 되기 전에 회원 가입하기 버튼을 누르면 동작하지 않지만 해당 기능을 기억하고 있어서 JS 다운로드가 완료되면 회원 가입으로 진입한다. 
-3. JS 가 다운로드 되면 웹 페이지는 상호작용이 가능한 상태가 된다.
-
-이점<br>
-* SEO 에 최적화되어있다.
-* 초기 로딩이 빠르다
-* LCP
-
-단점<br>
-* 서버의 부하가 심하다.
-* TTV(Time To View) 와 TTI(Time To Interact) 시간 존재
-
-### CSR
-Client Side Rendering 의 약자로, 브라우저가 페이지를 렌더링한다.<br>
-즉, 서버에서 받은 결과 값을 활용하여 페이지를 그려서 클라이언트한테 보여준다.<br>
-
-동작 방식
-![img_5.png](img_5.png)
-첨부된 SSR 이미지와 대체 무엇이 다를까, 내용을 얽어봐도 사실 이해하기 힘들었다.<br>
-1. 서버는 브라우저로 결과 값을 리턴한다.
-   * 아마도 HTML 도 받겠지만, HTML 내용은 전부 비어있다.
-2. 브라우저는 JS를 다운로드 받는다.
-3. 
-
-
-이점<br>
-* UI 가 좋다
-* 서버의 부하가 덜 하다.
-
-단점<br>
-* 초기 로딩이 느리다.
-* SEO 를 활용하기 쉽지 않다.
-
-정리<br>
-SSR 과 CSR 의 다른 포인트는 `어디서 페이지를 렌더링 할 것인가` 이다.<br>
-
-참고<br>
-https://scythe-studio.com/en/blog/web-development/client-side-vs-server-side-rendering
