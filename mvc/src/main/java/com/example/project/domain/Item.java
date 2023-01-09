@@ -10,11 +10,15 @@ public class Item {
 
     private String name;
 
-    private int price;
+    private Integer price;
 
-    private int quantity;
+    private Integer quantity;
 
-    public Item(String name, int price, int quantity) {
+    public Item() {
+
+    }
+
+    public Item(String name, Integer price, Integer quantity) {
         this.name = name;
         this.quantity = quantity;
         this.price = price;
