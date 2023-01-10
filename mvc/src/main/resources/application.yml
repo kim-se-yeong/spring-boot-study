@@ -5,3 +5,7 @@ logging:
       example:
         basic:
           debug
+
+spring:
+  messages:
+    basename: messages,errors
